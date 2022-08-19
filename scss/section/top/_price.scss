@@ -1,0 +1,159 @@
+@forward '../../foundation/variable';
+@use '../../foundation/variable' as v;
+
+@forward '../../foundation/mixin';
+@use '../../foundation/mixin' as m;
+
+@forward '../../utility/length';
+@use '../../utility/length'as l;
+
+
+.price {
+  margin-top: min( l.lg_a(233), 305.812px );
+
+  @include m.mq-down('sp') {
+    margin-top: l.lg_sp_a(149);
+  }
+
+  .container {
+    max-width: unquote('min(calc( 1004 / 1280 * 100% ), 1004px)');
+    margin: 0 auto;
+    padding-bottom: unquote('min(calc( 428 / 1280 * 100% ), 428px)');
+    background: image-set(url(../img/price.webp) 1x, url(../img/price@2x.webp) 2x,  url(../img/price@3x.webp) 3x, url(../img/price@4x.webp) 4x) no-repeat;
+    background: -webkit-image-set(url(../img/price.webp) 1x, url(../img/price@2x.webp) 2x,  url(../img/price@3x.webp) 3x, url(../img/price@4x.webp) 4x) no-repeat;
+    background-position: 100% 100%;
+    background-size: unquote('min(calc( 663 / 1004 * 100% ), 663px)') unquote('min(calc( 884 / 977 * 100% ), 884px)');
+
+    @include m.mq-down('sp') {
+      max-width: 100%;
+      background-position: 50% -6%;
+      background-size: 129% 100%;
+      padding-top: l.lg_sp_a(48);
+      padding-bottom: l.lg_sp_a(48.32);
+    }
+  }
+}
+
+  .no-webp .container {
+    background: url(../img/price.jpg) no-repeat;
+    background: image-set(url(../img/price.jpg) 1x, url(../img/price@2x.jpg) 2x,  url(../img/price@3x.jpg) 3x, url(../img/price@4x.jpg) 4x) no-repeat;
+    background: -webkit-image-set(url(../img/price.jpg) 1x, url(../img/price@2x.jpg) 2x,  url(../img/price@3x.jpg) 3x, url(../img/price@4x.jpg) 4x) no-repeat;
+
+    @include m.mq-down('sp') {    
+      max-width: 100%;
+      background-position: 50% -6%;
+      background-size: 129% 100%;
+      padding-top: l.lg_sp_a(48);
+      padding-bottom: l.lg_sp_a(48.32);
+    }
+  }
+
+
+.price {
+
+    &-menu {
+      border: clamp(2.5px, calc( 100 / 1280 * 5vw ), 7px) solid v.$color-price-menu-border;
+      background: v.$color-price-menu-background;
+      width: l.lg_b(484);
+
+      @include m.mq-down('sp') {
+        width: l.lg_sp_a(345);
+        margin: 0 auto;
+        padding-bottom: l.lg_sp_a(72);
+        text-align: center;
+        border: v.fs_b(5) solid v.$color-price-menu-border;
+      }
+    }
+
+      .heading {
+        padding-top: calc( 50 / 484 * 100% );
+        padding-bottom: calc( 18 / 484 * 100% );
+        text-align: center;
+        line-height: 1.2084;
+
+        @include m.mq-down('sp') {      
+          padding-top: calc( 66 / 335 * 100% );
+          letter-spacing: 0.03em;
+        }
+
+        &:after {
+          height: calc( 5 / 126 * 100% );
+          bottom: -3%;
+          left: 50.3%;
+          transform: translate(-50%);
+          width: calc( 69 / 484 * 100% );
+
+          @include m.mq-down('sp') {
+            height: min( calc( 5.01 / 124.36 * 100% ), 5px);   
+            margin-left: calc( -1 / 335 * 100% );
+            width: calc( 69 / 335 * 100% );
+            bottom: -2%;
+          }
+        }
+      }
+
+      .title {
+        margin-top: calc( 24 / 484 * 100% );
+        line-height: 1;
+        text-align: center;
+
+        @include m.mq-down('sp') {           
+          padding: 0;
+          margin-top: calc( 107 / 667 * 18vh );
+        }
+      }
+
+        &-lineup {
+          width: calc( 324 / 484 * 100%);
+          margin: 0 auto;
+          padding-top: calc( 68 / 494 * 100% );
+          padding-bottom: calc( 69.43 / 494 * 100% );
+          display: flex;
+          flex-wrap: wrap;
+          line-height: 2.93;
+
+          @include m.mq-down('sp') {         
+            padding-top: calc( 73 / 335 * 100% );
+            width: calc( 223.07 / 335 * 100% );
+            line-height: 3.9;
+            padding-bottom: 0;
+          }
+
+          dt {
+            width: 70%;
+            font-size: v.fs_a(16);
+            font-family: v.$font_b;
+            font-weight: bold;
+            color: v.$color-price-menu-list;
+            border-top: 1px dashed v.$color-price-menu-list-border;
+
+            @include m.mq-down('sp') {             
+              font-size: v.fs_b(12);
+              text-align: left;
+            }
+          }
+
+          dd {
+            width: 29.5%;
+            text-align: right;
+            font-size: v.fs_a(16);
+            font-family: v.$font_b;
+            font-weight: bold;
+            color: v.$color-price-menu-list;
+            border-top: 1px dashed v.$color-price-menu-list-border;
+            margin-left: 0.5%;
+
+            @include m.mq-down('sp') {
+              font-size: v.fs_b(12);
+            }
+          }
+
+          dt:first-child {
+            border-top: none;
+
+          + dd {
+            border-top: none;
+          }
+          }
+        }
+  }

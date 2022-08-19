@@ -1,0 +1,44 @@
+@forward '../foundation/variable';
+@use '../foundation/variable' as v;
+
+@forward '../foundation/mixin';
+@use '../foundation/mixin' as m;
+
+@forward '../utility/length';
+@use '../utility/length' as l;
+
+
+.footer {
+  background: v.$color-footer-background;
+  border: 1px solid v.$color-footer-border;
+
+  .container {
+    padding-top: min( l.lg_a(76), 99.625px );
+    padding-bottom: min( l.lg_a(89), 116.672px );
+    text-align: center;
+
+    @include m.mq-down('sp') {
+      padding-top: calc( 69 / 373 * 100% );
+      padding-bottom: calc( 61 / 373 * 100% );
+      text-align: center;
+    }
+  }
+
+    &-logo {
+      font-size: unquote('min(calc( 100 / 1280 * 80vw ), 80px)');
+      color: v.$color-footer-logo;
+      font-family: v.$font_a;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      line-height: 1.28;
+      margin-left: calc( 5 / 1278 * 100% );
+
+      @include m.mq-down('sp') {
+        font-size: v.fs_b(40);
+        line-height: 1.225;
+      }
+    }
+}
+
+
+

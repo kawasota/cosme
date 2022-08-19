@@ -1,0 +1,68 @@
+@forward '../foundation/variable';
+@use '../foundation/variable' as v;
+
+@forward '../foundation/mixin';
+@use '../foundation/mixin' as m;
+
+
+/* common */
+img {
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-moz-selection {
+  background-color: black;
+  color: white;
+}
+::selection {
+  background-color: black;
+  color: white;
+}
+
+/* L 見出し */
+.heading {
+  @include m.heading;
+}
+
+/* LL 見出しの下線 */
+.heading:after {
+  @include m.heading-underline;
+}
+
+/* LL 見出しの補足 */
+.title {
+  @include m.heading-desc;
+}
+
+/* common (SP) */
+@include m.mq-down('sp') {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  :before, :after {
+    box-sizing: inherit;
+  }
+
+  /* L 見出し */
+  .heading  {
+    @include m.heading_sp;
+  }
+
+  /* LL 見出しの補足 */
+  .title {
+    @include m.heading-desc_sp;
+  }
+
+}

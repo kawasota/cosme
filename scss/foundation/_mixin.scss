@@ -1,0 +1,52 @@
+@forward '../foundation/variable';
+@use '../foundation/variable' as v;
+
+// 見出し 
+@mixin heading {
+  position: relative;
+  color: v.$color-section-name;
+  font-size: v.fs_a(48);
+  font-family: v.$font_a;
+  font-weight: bold;
+  letter-spacing: 0.015em;
+  line-height: 1.2085;
+}
+
+// 見出しの下線
+@mixin heading-underline {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-color: v.$color-section-name-underline;
+  left: 0;
+}
+
+// 見出しの補足
+@mixin heading-desc {
+  color: v.$color-section-name-desc;
+  font-size: v.fs_a(16);
+  font-weight: bold;
+  font-family: YuGothic, "Yu Gothic", Meiryo, sans-serif;
+  line-height: 0.9301;
+}
+
+// 見出し(SP)
+@mixin heading_sp {
+  font-size: v.fs_b(38);
+  line-height: 1.237;
+}
+
+// 見出しの補足(SP)
+@mixin heading-desc_sp {
+  font-size: v.fs_b(12);
+  line-height: 0.99;
+}
+
+// メディアクエリー(SP)
+@mixin mq-down($breakpoint: sp) {
+  @media #{map-get(v.$breakpoint-down, $breakpoint)} {
+    @content
+  }
+}
+
+

@@ -1,0 +1,110 @@
+@forward '../../foundation/variable';
+@use '../../foundation/variable' as v;
+
+@forward '../../foundation/mixin';
+@use '../../foundation/mixin' as m;
+
+@forward '../../utility/length';
+@use '../../utility/length'as l;
+
+
+.about {
+  padding-top: min( l.lg_a(152), 199.5px );
+
+  @include m.mq-down('sp') {
+    padding-top: l.lg_sp_a(103);
+  }
+
+  .container {
+    max-width: unquote('min(calc(1004/1280 *100%), 1004px)');
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+    @include m.mq-down('sp') {
+      flex-direction: column;
+      max-width: l.lg_sp_a(345);
+    }
+  }
+
+    .contents {
+      background: v.$color-about-contens-background;
+      border: 1px solid v.$color-about-contens-border;
+      padding: l.lg_b(72) l.lg_b(68) l.lg_b(53) l.lg_b(67);
+      max-width: l.lg_b(272);
+    
+      @include m.mq-down('sp') {
+        background: transparent;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+
+      .heading {
+        letter-spacing: 0;
+        padding-bottom: calc( 15 / 272 * 100% );
+      
+        @include m.mq-down('sp') {
+          letter-spacing: 0;
+          padding-bottom: l.lg_sp_b(14);
+        }
+
+        &:after {
+          height: calc( 5 / 73 * 100% );
+          bottom: -5%;
+          width: calc( 69 / 272 * 100% );
+        
+          @include m.mq-down('sp') {
+              height: min( calc( 5 / 61 * 100% ), 5px);
+              bottom: -3%;
+              width: calc( 54.4 / 272 * 100% );
+            }
+        }
+      }
+
+      .title {
+        margin-top: calc( 20 / 272 * 100% );
+
+        @include m.mq-down('sp') {
+          margin-top: l.lg_sp_b(22);
+        }
+      }
+
+      .subtitle {
+        margin-top: calc( 43 / 272 * 100% );
+        color: v.$color-about-contens-heading;
+        font-size: v.fs_a(24);
+        font-weight: bold;
+        font-family: v.$font_b;
+
+        @include m.mq-down('sp') {
+          margin-top: l.lg_sp_b(34);
+          font-size: v.fs_b(20);
+        }
+      }
+
+      .desc {
+        margin-top: calc( 7 / 272 * 100% );
+        color: v.$color-about-contens-desc;
+        font-size: v.fs_a(16);
+        font-family: v.$font_c;
+        line-height: 2;
+
+        @include m.mq-down('sp') {
+          margin-top: l.lg_sp_b(17);
+          font-size: v.fs_b(12);
+          line-height: 2;
+        }
+      }
+
+    .pic {
+      margin-left: l.lg_b(101);
+
+      @include m.mq-down('sp') {
+        margin-top: l.lg_sp_b(23);
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+}

@@ -1,0 +1,122 @@
+
+// * Font * //
+// * Color * //
+// * Media Query * //
+
+
+////////////// Font ////////////// 
+
+// - Font A
+$font_a: 'Montserrat', sans-serif;
+
+// - Font B
+$font_b: YuGothic, "Yu Gothic", Meiryo, sans-serif;
+
+// - Font C
+$font_c: YuGothic, "Yu Gothic Medium", "Yu Gothic", Meiryo, sans-serif;
+
+
+// Font size patarn A
+@function fs_a($value) {
+  $value_var: #{ 100 / 1280 * $value } + vw;
+  $value_max: $value + px;
+  @return min(#{$value_var},#{$value_max});
+}
+
+// Font size patarn B
+@function fs_b($value) {
+  $value_var: #{ 100 / 375 * $value } + vw;
+  @return #{$value_var};
+}
+
+
+////////////// Color ////////////// 
+
+// Palette
+$palette-white: #FFFFFF;
+$palette-white-transparent: rgba(255, 255, 255, 0.8);
+$palette-white-transparent2: rgba(255, 255, 255, 0.95);
+$palette-tundora: #4D4D4D;
+$palette-black: #000000;
+$palette-pharlap: #A38787;
+$palette-gondola: #251616;
+$palette-concrete: #F2F2F2;
+$palette-dove_gray: #707070;
+$palette-dove_gray_b: #6F6565;
+$palette-cod_gray: #0A0A0A;
+$palette-cod_gray_b: #101010;
+$palette-congo_brown: #5C3333;
+
+
+// Color of parts of foundation
+
+//  - header
+$color-header-logo: $palette-white;
+$color-header-logo-desc: $palette-white;
+$color-header-nav: $palette-white;
+$color-header-nav-hover: $palette-white;
+
+// - section h2 + underline + title (about ~ access まで共通)
+$color-section-name: $palette-black;
+$color-section-name-underline: $palette-cod_gray;
+$color-section-name-desc: $palette-black;
+
+// - footer
+$color-footer-background: $palette-dove_gray_b;
+$color-footer-border: $palette-congo_brown;
+$color-footer-logo: $palette-white;
+
+// - hamburger
+$color-hamburger-background: $palette-white;
+$color-hamburger-line: $palette-cod_gray_b;
+$color-hamburger-headermenu-background: $palette-white-transparent2;
+$color-hamburger-headermenu-link: $palette-black;
+
+// - arrow
+$color-arrow-line: $palette-white;
+
+
+// Color of pages 
+
+// - top
+// -- mainvisual
+$color-mainvisual-copy: $palette-white;
+$color-mainvisual-copy-desc: $palette-white;
+
+// -- about 
+$color-about-contens-heading: $palette-black;
+$color-about-contens-desc: $palette-black;
+$color-about-contens-border: $palette-dove_gray;
+$color-about-contens-background: $palette-concrete;
+
+// -- item
+$color-item-product-category: $palette-black;
+$color-item-product-name: $palette-black;
+$color-item-product-desc: $palette-black;
+
+// -- price
+$color-price-menu-border: $palette-pharlap;
+$color-price-menu-background: $palette-white-transparent;
+$color-price-menu-list:  $palette-black;
+$color-price-menu-list-border: $palette-dove_gray;
+
+// -- blog
+$color-blog-background: $palette-concrete;
+$color-blog-date: $palette-black;
+$color-blog-category: $palette-tundora;
+$color-blog-desc: $palette-black;
+
+// -- access
+$color-access-info-dt: $palette-cod_gray_b;
+$color-access-info-dd: $palette-cod_gray_b;
+$color-access-detail-title: $palette-black;
+$color-access-detail-desc: $palette-cod_gray_b;
+
+
+
+////////////// Media Query ////////////// 
+
+$breakpoint-down: (
+'sp': '(max-width: 540px)'
+);
+

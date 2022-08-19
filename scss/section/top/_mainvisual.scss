@@ -1,0 +1,89 @@
+@forward '../../component/hamburger';
+@forward '../../component/arrow';
+
+@forward '../../foundation/variable';
+@use '../../foundation/variable' as v;
+
+@forward '../../foundation/mixin';
+@use '../../foundation/mixin' as m;
+
+@forward '../../utility/length';
+@use '../../utility/length'as l;
+
+
+// hamburger,arrow を読む込み (headerはtop.scssで読み込み)
+
+.mainvisual {
+  background: image-set(url(../img/top-main.webp) 1x, url(../img/top-main@2x.webp) 2x,  url(../img/top-main@3x.webp) 3x, url(../img/top-main@4x.webp) 4x)(center / cover);
+  background: -webkit-image-set(url(../img/top-main.webp) 1x, url(../img/top-main@2x.webp) 2x,  url(../img/top-main@3x.webp) 3x, url(../img/top-main@4x.webp) 4x)(center / cover);
+  padding-bottom: l.lg_a(38.41);
+
+  @include m.mq-down('sp') {
+    background: image-set(url(../img/top-main-sp.webp) 1x, url(../img/top-main-sp@2x.webp) 2x,  url(../img/top-main-sp@3x.webp) 3x, url(../img/top-main-sp@4x.webp) 4x)(center / cover);
+    background: -webkit-image-set(url(../img/top-main-sp.webp) 1x, url(../img/top-main-sp@2x.webp) 2x,  url(../img/top-main-sp@3x.webp) 3x, url(../img/top-main-sp@4x.webp) 4x)(center / cover);
+    padding-bottom: 5.176%;
+  }
+}
+
+.no-webp .mainvisual {
+  background: url(../img/top-main.jpg) (center / cover);
+  background: image-set(url(../img/top-main.jpg) 1x, url(../img/top-main@2x.jpg) 2x,  url(../img/top-main@3x.jpg) 3x, url(../img/top-main@4x.jpg) 4x)(center / cover);
+  background: -webkit-image-set(url(../img/top-main.jpg) 1x, url(../img/top-main@2x.jpg) 2x,  url(../img/top-main@3x.jpg) 3x, url(../img/top-main@4x.jpg) 4x)(center / cover);
+
+  @include m.mq-down('sp') {
+    background: image-set(url(../img/top-main-sp.jpg) 1x, url(../img/top-main-sp@2x.jpg) 2x,  url(../img/top-main-sp@3x.jpg) 3x, url(../img/top-main-sp@4x.jpg) 4x)(center / cover);
+    background: -webkit-image-set(url(../img/top-main-sp.jpg) 1x, url(../img/top-main-sp@2x.jpg) 2x,  url(../img/top-main-sp@3x.jpg) 3x, url(../img/top-main-sp@4x.jpg) 4x)(center / cover);
+  }
+}
+
+.mainvisual {
+
+  .container {
+    margin: 0 auto;
+    margin-top: unquote('min(calc( 280 / 1280 * 100% ), 280px)');
+    max-width: 1002px;
+    width: calc( 100% - ( 278 / 1280 ) * 100% );
+
+    @include m.mq-down('sp') {
+      margin-left: l.lg_sp_a(18);
+      margin-top: l.lg_sp_a(90);
+    }
+  }
+
+    .catch-copy {
+      color: v.$color-mainvisual-copy;
+      font-size: v.fs_a(64);
+      font-family: v.$font_a;
+      font-weight: bold;
+      line-height: 1.2345;
+
+      @include m.mq-down('sp') {
+        font-size: v.fs_b(40);
+        line-height: 1.2;
+      }
+    
+      &-desc {
+        color: v.$color-mainvisual-copy-desc;
+        font-size: v.fs_a(24);
+        font-weight: bold;
+        font-family: v.$font_b;
+        margin-top: calc( 17 / 1002 * 100% );
+        letter-spacing: 0.05em;
+        line-height: 1.417;
+        margin-left: calc( 3 / 1002 * 100% );
+
+        @include m.mq-down('sp') {
+          font-size: v.fs_b(16);
+          line-height: 1.25;
+          padding-left: 0;
+          margin-left: 0;
+          margin-top: calc( 6 / 293.55 * 100% );
+
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+}
+
